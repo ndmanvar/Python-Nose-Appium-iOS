@@ -9,6 +9,6 @@
 `pip install Appium-Python-Client sauceclient nose==1.1.0  # use sudo if necessary`
 
 # Running tests
-to run tests: `nosetests --processes=8 --process-timeout=120`
+to run tests: `nosetests --processes=8 --process-timeout=500`
 ..` 
 

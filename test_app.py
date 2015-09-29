@@ -8,7 +8,7 @@ from sauceclient import SauceClient
 browsers = [{
     'appiumVersion':    '1.4.11',
     'platformName':     'iOS',
-    'platformVersion':  '8.0',
+    'platformVersion':  '8.4',
     'deviceName':       'iPhone 6 Device',
     'app':              'sauce-storage:TestApp-iphoneos.app.zip',
     'browserName':      '',
@@ -17,8 +17,8 @@ browsers = [{
     'appiumVersion':     '1.4.11',
     'platformName':      'iOS',
     'platformVersion':   '8.4',
-    'deviceName':        'iPhone 6 Device',
-    'app':               'sauce-storage:TestApp-iphoneos.app.zip',
+    'deviceName':        'iPhone Simulator',
+    'app':               'https://s3.amazonaws.com/appium/TestApp8.4.app.zip',
     'browserName':       '',
     'deviceOrientation': 'portrait'
 }]
@@ -40,7 +40,7 @@ def teardown_func():
     sauce_client.jobs.update_job(driver.session_id, passed=status)
 
 # Will generate a test for each browser and os configuration
-def test_generator_verify_google():
+def test_generator():
     for browser in browsers:
         yield compute_sum, browser
 
