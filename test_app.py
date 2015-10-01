@@ -5,20 +5,12 @@ from nose.tools import with_setup
 from appium import webdriver
 from sauceclient import SauceClient
 
-browsers = [{
-    'deviceName':        'iPhone 5',
+devices = [{
+    'deviceName':        'iPhone 6 Device',
     'appiumVersion':     '1.4.11',
     'platformName':      'iOS',
     'platformVersion':   '8.4',
-    'app':               'https://s3.amazonaws.com/appium/TestApp8.4.app.zip',
-    'browserName':       '',
-    'deviceOrientation': 'portrait'
-}, {
-    'deviceName':        'iPhone 6',
-    'appiumVersion':     '1.4.11',
-    'platformName':      'iOS',
-    'platformVersion':   '8.4',
-    'app':               'https://s3.amazonaws.com/appium/TestApp8.4.app.zip',
+    'app':               'sauce-storage:TestApp-iphoneos.app.zip',
     'browserName':       '',
     'deviceOrientation': 'portrait'
 }]
@@ -41,7 +33,7 @@ def teardown_func():
 
 # Will generate a test for each browser and os configuration
 def test_generator():
-    for browser in browsers:
+    for browser in devices:
         yield compute_sum, browser
 
 @with_setup(None, teardown_func)
